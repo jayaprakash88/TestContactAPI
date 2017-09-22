@@ -96,7 +96,7 @@ describe 'ContactsAPI Create' do
     update_params = { email: contact2[:email], age: "20" }
     put "contact_data/update_by_email", {}, params: update_params
     expect_status(200)
-    expect_json(age: 20,address: "Mumbai")
+    expect_json(age: 20,address: "Chennai")
   end
 
   it 'update and returns status 200 by uuid' do
