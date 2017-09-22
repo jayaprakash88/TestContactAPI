@@ -93,9 +93,10 @@ describe 'ContactsAPI Create' do
 
   it 'update and returns status 200 by mail id' do
     contact2 = attributes_for(:contact2)
-    update_params = { email: contact2[:email], age: "50" }
+    update_params = { email: contact2[:email], age: "20" }
     put "contact_data/update_by_email", {}, params: update_params
     expect_status(200)
+    expect_json(age: 20,address: "Mumbai")
   end
 
   it 'update and returns status 200 by uuid' do
@@ -103,6 +104,7 @@ describe 'ContactsAPI Create' do
     update_params = { id: contact2[:id], age: "50" , address: "Mumbai"}
     put "contact_data/update_by_email", {}, params: update_params
     expect_status(200)
+    expect_json(age: 50,address: "Mumbai")
   end
 
   it 'error returns status 422 for updating age as string' do
